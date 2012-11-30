@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8"/>
+        <title>Ducttape task</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"/>
+    </head>
+    <body>
+    <div id="page">
+        <h1><a href="{{url_for('index')}}" class="nav">⬆</a>
+            Task {{configuration.task_name}}/{{configuration.conf_name}}</h1>
+        <p>Status: {{configuration.exit_code}}</p>
+        <h2 style="color:#798311;">Standard Output</h2>
+        <pre>{{configuration.stdout}}</pre>
+        <h2 style="color:#BC3331;">Standard Error</h2>
+        <pre>{{configuration.stderr}}</pre>
+    </div>
+    </body>
+</html>
+

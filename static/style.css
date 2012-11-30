@@ -1,0 +1,55 @@
+body {
+    background: #002b36;
+    color: #839496;
+    font: 100% Consolas, Monaco, monospace;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a.running {
+    color: #3279C3;
+}
+a.succeeded {
+    color: #798311;
+}
+a.failed {
+    color: #BC3331;
+}
+a.nav {
+    color: #586e75;
+}
+li {
+    list-style-type: square;
+    line-height: 1.5em;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+li.task ul {
+    padding: 0 1em;
+}
+span.task_name {
+    font-size: 1.2em;
+}
+li.task {
+    line-height: 3em;
+    display: inline-block;
+    width: 310px;
+    vertical-align: top;
+}
+#tasks, #page {
+    margin: 20px auto;
+    width: 960px;
+}
+::selection { 
+    background: #839496;
+    color: #002b36;
+}
+pre {
+    white-space: pre-wrap;
+    border: 1px solid #839496;
+    padding: 10px;
+}

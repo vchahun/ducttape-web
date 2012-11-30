@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8"/>
+        <title>Ducttape workflow</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"/>
+    </head>
+    <body>
+        <ul id="tasks">
+            {% for task_name, task in workflow.tasks.items() %}
+            <li class="task">
+                <span class="task_name">{{task_name}}</span>
+                <ul>
+                {% for conf_name, configuration in task.configurations.items()|sort %}
+                <li>
+                    <a class="{% if configuration.exit_code == None -%}
+                        running
+                        {%- elif configuration.exit_code == 0 -%}
+                        succeeded
+                        {%- else -%}
+                        failed
+                        {%- endif%}" href="{{url_for('task', task_name=task_name, conf_name=conf_name)}}">{{conf_name|replace('+', ' + ')}}</a>
+                    {% if configuration.exit_code not in (None, 0) %}
+                    (✖ {{configuration.exit_code}})
+                    {% endif %}
+                </li>
+                {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
+
