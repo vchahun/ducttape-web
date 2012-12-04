@@ -8,14 +8,17 @@ a {
     text-decoration: none;
     color: inherit;
 }
-a.running {
+.running {
     color: #3279C3;
 }
-a.succeeded {
+.succeeded {
     color: #798311;
 }
-a.failed {
+.failed {
     color: #BC3331;
+}
+.invalidated {
+    color: #586e75;
 }
 a.nav {
     color: #586e75;
@@ -52,4 +55,12 @@ pre {
     white-space: pre-wrap;
     border: 1px solid #839496;
     padding: 10px;
+}
+input[type=text] {
+    background-color: inherit;
+    font: inherit 90%;
+    color: inherit;
+    padding: 0 3px;
+    line-height: 1.5em;
+    border: 1px solid #839496;
 }

@@ -8,8 +8,9 @@
     <body>
     <div id="page">
         <h1><a href="{{url_for('index')}}" class="nav">⬆</a>
-            Task {{configuration.task_name}}/{{configuration.conf_name}}</h1>
-        <p>Status: {{configuration.exit_code}}</p>
+            Task {{configuration.task_name}} / {{configuration.conf_name|replace('+', ' + ')}}</h1>
+        <p>Status: <span class="{{configuration.status}}">{% if configuration.exit_code == None %}running...{% else %}terminated with exit code {{configuration.exit_code}}{% endif %}</span></p>
+        <form action="" method="GET"><p>Filter: <input type="text" value="{{filter}}" name="filter"></input></p></form>
         <h2 style="color:#798311;">Standard Output</h2>
         <pre>{{configuration.stdout}}</pre>
         <h2 style="color:#BC3331;">Standard Error</h2>

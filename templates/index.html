@@ -11,20 +11,14 @@
             <li class="task">
                 <span class="task_name">{{task_name}}</span>
                 <ul>
-                {% for conf_name, configuration in task.configurations.items()|sort %}
+                {%- for conf_name, configuration in task.configurations.items()|sort %}
                 <li>
-                    <a class="{% if configuration.exit_code == None -%}
-                        running
-                        {%- elif configuration.exit_code == 0 -%}
-                        succeeded
-                        {%- else -%}
-                        failed
-                        {%- endif%}" href="{{url_for('task', task_name=task_name, conf_name=conf_name)}}">{{conf_name|replace('+', ' + ')}}</a>
+                    <a class="{{configuration.status}}" href="{{url_for('task', task_name=task_name, conf_name=conf_name)}}">{{conf_name|replace('+', ' + ')}}</a>
                     {% if configuration.exit_code not in (None, 0) %}
                     (✖ {{configuration.exit_code}})
                     {% endif %}
                 </li>
-                {% endfor %}
+                {% endfor -%}
                 </ul>
             </li>
             {% endfor %}
