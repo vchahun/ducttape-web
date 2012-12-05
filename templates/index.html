@@ -7,7 +7,7 @@
     </head>
     <body>
         <ul id="tasks">
-            {% for task_name, task in workflow.tasks.items() %}
+            {% for task_name, task in workflow.tasks.items() | sort %}
             <li class="task">
                 <span class="task_name">{{task_name}}</span>
                 <ul>

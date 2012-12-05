@@ -101,4 +101,4 @@ def index():
     return render_template('index.html', workflow=workflow)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=random.randint(1000, 10000))
+    app.run(host=socket.gethostname(), port=random.randint(1000, 10000))
