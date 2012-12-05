@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
-import argparse
+import socket
 import os
 import re
+import random
 from collections import deque, defaultdict
 app = Flask(__name__)
 
@@ -100,7 +101,4 @@ def index():
     return render_template('index.html', workflow=workflow)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='run ducttape-web')
-    parser.add_argument('port', type=int, nargs='?', default=5000)
-    args = parser.parse_args()
-    app.run(host='0.0.0.0', port=args.port)
+    app.run(host='0.0.0.0', port=random.randint(1000, 10000))
